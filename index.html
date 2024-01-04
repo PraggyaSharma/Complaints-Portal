@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints/Grievances Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            position: relative;
+            /*background-image: url('images/maxresdefault.jpg'); /* Add your image path here */
+            /*background-size: cover;
+            background-repeat: no-repeat;*/
+            background-attachment: fixed;
+        }
+        .background-container {
+            position: fixed; /* Position it over the entire screen */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/maxresdefault.jpg'); /* Your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.7; /* Adjust for desired transparency */
+            z-index: -1; /* Ensures the image stays behind other content */
+        }
+
+
+        h2 {
+            color: #333;
+            text-align: center;
+            font-size: 50px; /* Adjust the font size as needed */
+            margin-top: 50px;
+            margin-bottom: 75px; /* Adjust the margin bottom as needed */
+        }
+
+        #formContainer {
+            width: 500px; /* Increase the width as needed */
+            margin: 0 auto; /* Center the container */
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left; /* Left-align the label text */
+        }
+
+        input, textarea {
+            width: calc(100% - 20px); /* Adjust the width as needed */
+            padding: 6px; /* Adjust the padding as needed */
+            margin: 4px 0; /* Adjust the margin as needed */
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px; /* Adjust the padding as needed */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px; /* Add margin to the top of the button */
+            width: 40%; /* Make the button full width */
+            font-size: 14px; /* Adjust the font size as needed */
+            text-align: center;
+        }
+
+        #bitsLogo {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            max-width: 100px; /* Adjust the size as needed */
+            max-height: 100px;  /* Adjust the size as needed */
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .content-box {
+            border: 1px solid #ccc; /* light grey border */
+            padding: 20px; /* space inside the box */
+            margin: 20px auto; /* centered with margin on the top and bottom */
+            max-width: 600px; /* maximum width of the box */
+            background-color: #fff; /* white background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+            border-radius: 25px; /* Adjust this value for desired roundness */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <img id="bitsLogo" src="images/images.jpeg" alt="BITS Logo">
+    
+    <h2>Complaints/Grievances Portal</h2>
+    <div class="content-box">
+        <p>Please put in any grievances/complaints that you wish to be handled by the Girls Convenor<br> If you want to be contacted, please mention your contact number.</p>
+        <div id="formContainer">
+            <form id="complaintForm" action="https://script.google.com/a/macros/goa.bits-pilani.ac.in/s/AKfycbw09WC-M4UEHQUoU-sv-yOcshD1_YXcDz19a94uFYgRyU6u7GE3XMx1zZwi0rs7Wp9J/exec" method="post">
+                <label for="contact">Contact Information (optional)</label>
+                <input type="text" id="contact" name="contact" placeholder="Your contact information">
+    
+                <label for="complaint">Complaint/Grievance</label>
+                <textarea id="complaint" name="complaint" rows="4" placeholder="Describe your complaint or grievance"></textarea>
+    
+                <button type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Implement submission logic here
+            alert('Your complaint/grievance has been submitted. Thank you for reaching out.');
+            // You would need to handle form submission asynchronously using JavaScript or a library like Axios.
+            var form = document.getElementById('complaintForm');
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            })
+            .then(response => response.text())
+            .then(result => alert(result))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+    
+</body>
+</html>
